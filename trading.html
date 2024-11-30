@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading View</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">BrokerPro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="trading.html">Trading View</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TradingView Chart Section -->
+  <div class="container my-4">
+    <h3 class="text-center">Real-Time Trading Analysis</h3>
+    <div id="tradingview-widget" class="my-4"></div>
+  </div>
+
+  <!-- TradingView Widget Script -->
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+  <script type="text/javascript">
+    new TradingView.widget({
+      "container_id": "tradingview-widget",
+      "symbol": "NASDAQ:AAPL",  // Change to your preferred stock symbol
+      "interval": "D",          // Time interval (e.g., 'D' for daily, '1' for 1-minute)
+      "timezone": "exchange",   // Timezone of the exchange
+      "theme": "dark",          // Theme: 'light' or 'dark'
+      "style": "1",             // Chart style: '1' is candlestick
+      "locale": "en",           // Language
+      "toolbar_bg": "#f1f3f6",  // Background of the toolbar
+      "enable_publishing": false, // Disable chart sharing
+      "allow_symbol_change": true, // Allow users to change the stock symbol
+      "details": true,          // Show stock details
+      "studies": ["MACD@tv-basicstudies"], // Include indicators (e.g., MACD)
+      "height": 500,            // Chart height in pixels
+      "width": "100%"           // Chart width (responsive)
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
